@@ -1,0 +1,32 @@
+<!doctype html>
+<div id="timeline">
+    <link rel="stylesheet" type="text/css" href="/header.css">
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+
+
+    <div th:each="info, i: ${InfoList}">
+        <block th:if="${i.count%2==1}">
+        <div class="container left">
+        
+        <i class="fa fa-code-fork" aria-hidden="true"></i>
+        <div class="content">
+            <h2 th:text="${#dates.format(info.date, 'yyyy-MM-dd')}"></h2>
+            <p th:text="${info.title}"></p>
+        </div>
+        </block>
+
+        <block th:if="${i.count%2==0}">
+        <div class="container right">
+
+        <i class="fa fa-code-fork" aria-hidden="true"></i>
+        <div class="content">
+            <h2 th:text="${#dates.format(info.date, 'yyyy-MM-dd')}"></h2>
+            <p th:text="${info.title}"></p>
+        </div>
+        </block>
+    </div>
+
+</html>
+
+</div>
